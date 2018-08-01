@@ -9,6 +9,10 @@ $(function(){
       $('#messages').append($('<li>').text(msg));
     });
     socket.on('join', function(name){
-      $('#messages').append($('<li>').text(name+' entrou..'));
+      var date = new Date();
+      var time = date.getHours() + ":" + date.getMinutes()
+      //$('#messages').append($('<li>').text(name+' entrou..'));
+      $('#messages').append($('<div class="container"><p>' + name + '</p><span class="time-right">' + time + '</span></div>'));
+      console.log(time);
     });
   })
