@@ -6,13 +6,16 @@ $(function(){
       return false;
     });
     socket.on('chat message',function(msg){
-      $('#messages').append($('<li>').text(msg));
-    });
-    socket.on('join', function(name){
       var date = new Date();
       var time = date.getHours() + ":" + date.getMinutes()
+      //$('#messages').append($('<li>').text(msg));
+      $('#messages').append($('<div class="container" style="width:auto"><p>' + msg + '</p><span class="time-right">' + time + '</span></div>'));
+    });
+    socket.on('join', function(name){
+      
       //$('#messages').append($('<li>').text(name+' entrou..'));
-      $('#messages').append($('<div class="container"><p>' + name + '</p><span class="time-right">' + time + '</span></div>'));
+      //$('#messages').append($('<div class="container" style="width:auto"><p>' + name + '</p><span class="time-right">' + time + '</span></div>'));
+      $('#messages').append($('<p class = "bold">').text( name + ' entrou..'));
       console.log(time);
     });
   })
