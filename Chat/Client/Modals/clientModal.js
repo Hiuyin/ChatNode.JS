@@ -1,12 +1,15 @@
 
+var meuNome = "";
+
 
 $(function(){
-var socket = io();
+    var socket = io();
 $('#myModal').modal({
     keyboard: true
   });
-$('#Username_button').click(function(){
-    socket.emit('join', $("#form").val());
+  $('#Username_button').click(function(){
+    meuNome = $("#form").val();
+    socket.emit('join',meuNome);
     $('#myModal').modal('toggle');
-})
+  });
 })
